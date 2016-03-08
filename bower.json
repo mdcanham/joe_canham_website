@@ -1,0 +1,22 @@
+{
+  "name": "joe-canham-portfolio",
+  "description": "",
+  "main": "keystone.js",
+  "authors": [
+    "Matthew Canham <mdcanham@me.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mdcanham/joe_canham_website",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6"
+  }
+}
