@@ -1,0 +1,9 @@
+extends ../layouts/default
+
+block content
+	.container-fluid.main-header-section
+		h1 Joe Canham
+		
+		each skill in data.skills
+			p #{skill.name}
+		
