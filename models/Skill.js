@@ -6,7 +6,8 @@ var keystone = require('keystone');
  */
 
 var Skill = new keystone.List('Skill', {
-	autokey: { from: 'name', path: 'key', unique: true }
+	autokey: { from: 'name', path: 'key', unique: true },
+	sortable: true
 });
 
 Skill.add({

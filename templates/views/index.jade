@@ -2,8 +2,12 @@ extends ../layouts/default
 
 block content
 	.container-fluid.main-header-section
-		h1 Joe Canham
+		h1.header-name-line Hi, my name is Joe.
 		
-		each skill in data.skills
-			p #{skill.name}
+		div#typed-strings
+			each skill in data.skills
+				p #{skill.name}
+
+		h1.header-skills-line I'm 
+			span#typed
 		

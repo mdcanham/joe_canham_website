@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "jquery": "^2.2.1",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "typed.js": "canham.typed.js#^1.1.2"
   }
 }

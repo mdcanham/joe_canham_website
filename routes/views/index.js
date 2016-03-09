@@ -15,7 +15,7 @@ exports = module.exports = function(req, res) {
 
 	//Load in skills
 	view.on('init', function(next){
-		keystone.list('Skill').model.find().exec(function(err, results) {
+		keystone.list('Skill').model.find().sort({ 'sortOrder' : 1 }).exec(function(err, results) {
 
 			if (err || !results.length) {
 				return next(err);

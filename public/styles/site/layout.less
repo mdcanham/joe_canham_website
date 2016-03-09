@@ -16,9 +16,23 @@
 }
 
 .main-header-section{
-	background-color: #AAA;
+	padding-top: 220px;
+	background-image: url('/images/header_bg.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
+	h1{
+		text-align: center;
+		color: #fff;
+		&.header-name-line{
+			font-family: @font-family-serif;
+			font-style: italic;
+			margin-bottom: 30px;
+		}
+		&.header-skills-line{
+			font-size: 80px;
+			font-weight: bold;
+		}
+	}
 }
