@@ -10,21 +10,29 @@ exports = module.exports = function(req, res) {
 	locals.section = 'home';
 
 	locals.data = {
-		skills: []
+		skills: [],
+		videos: []
 	};
 
 	//Load in skills
 	view.on('init', function(next){
 		keystone.list('Skill').model.find().sort({ 'sortOrder' : 1 }).exec(function(err, results) {
-
 			if (err || !results.length) {
 				return next(err);
 			}
-
 			locals.data.skills = results;
-
 			next();
+		});
+	});
 
+	view.on('init', function(next){
+		keystone.list('Video').model.find().sort({ 'sortOrder' : 1 }).exec(function(err, results) {
+			if (err || !results.length) {
+        console.log(error);
+        return;
+			}
+      locals.data.videos = results;
+			next();
 		});
 	});
 

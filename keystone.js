@@ -4,6 +4,8 @@ require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
+var express = require('express');
+app = express();
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -13,13 +15,13 @@ keystone.init({
 
 	'name': 'Joe Canham Portfolio',
 	'brand': 'Joe Canham Portfolio',
-	
+
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -27,8 +29,15 @@ keystone.init({
 
 });
 
-// Load your project's Models
+keystone.set('cloudinary config', {
+	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
+keystone.set('cloudinary secure', true);
+
+keystone.app = app;
 keystone.import('models');
 
 // Setup common locals for your templates. The following are required for the
@@ -49,9 +58,9 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'users': 'users'
+	'videos': ['videos', 'categories'],
+	'users': 'users',
+	'skills': 'skills'
 });
 
 // Start Keystone to connect to your database and initialise the web server

@@ -10,4 +10,25 @@ block content
 
 		h1.header-skills-line I'm 
 			span#typed.skill
+	.container
+		#portfolio-grid
+			each video in data.videos
+				div(class=video.size === 'Normal' ? 'grid-item' : 'grid-item grid-item-feature')
+					if video.playPreview
+						iframe(	id=video.videoId 
+										type="text/html" 
+										src="http://www.youtube.com/embed/" + video.videoId +
+											"?enablejsapi=1" +
+											"&playlist=" + video.videoId +
+											"&controls=0" +
+											"&modestbranding=1" +
+											"&showinfo=0" +
+											"&rel=0" +
+											"&loop=1" +
+											"&playsinline=1" +
+											"&autoplay=1"
+										frameborder="0")
+					else
+						.video-thumbnail(style='background-image: url(' + video.thumbnail + ')')
+	
 		

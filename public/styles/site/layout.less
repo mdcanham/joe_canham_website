@@ -39,3 +39,56 @@
 		color: #FED136;
 	}
 }
+
+#portfolio-grid {
+	margin: 0 auto;
+}
+
+.grid-item{
+	float: left;
+  width: 360px;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+
+.grid-item-feature {
+	.grid-item();
+	width:730px;
+	height: 410px;
+}
+
+.grid-item,
+.grid-item-feature{
+	iframe{
+		position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+	.video-thumbnail {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
+
+// @media screen and (max-width: @screen-sm-min) {
+// 	.grid-item,
+// 	.grid-item-feature {
+// 		.grid-item();
+// 		width: 360px;
+// 		height: 200px;
+// 	}
+// }
+
+// .video-cell iframe {
+//     position: absolute;
+//     top:0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+// }
