@@ -10,10 +10,14 @@ block content
 
 		h1.header-skills-line I'm 
 			span#typed.skill
-	.container
+	.container(class="video-grid-container")
 		#portfolio-grid
 			each video in data.videos
 				div(class=video.size === 'Normal' ? 'grid-item' : 'grid-item grid-item-feature')
+					.video-info-overlay
+						.inner-text
+							h3 #{video.name}
+							h4 Joe Canham
 					if video.playPreview
 						iframe(	id=video.videoId 
 										type="text/html" 
