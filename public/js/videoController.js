@@ -5,8 +5,13 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var container = $('#portfolio-grid');
 
+var VIMvideos = $('#portfolio-grid').find('.grid-item iframe.Vimeo');
+$.each(VIMvideos, function(index, video){
+  new VimeoVideo(video.id);
+});
+
 function onYouTubeIframeAPIReady() {
-  var YTvideos = $('#portfolio-grid').find('.grid-item iframe');
+  var YTvideos = $('#portfolio-grid').find('.grid-item iframe.Youtube');
   $.each(YTvideos, function(index, video){
     new YoutubeVideo(video.id);
   });

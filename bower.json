@@ -19,6 +19,7 @@
     "jquery": "^2.2.1",
     "bootstrap": "^3.3.6",
     "typed.js": "canham.typed.js#^1.1.2",
-    "freewall": "^1.0.5"
+    "freewall": "^1.0.5",
+    "froogaloop": "^1.0.0"
   }
 }

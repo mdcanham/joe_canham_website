@@ -3,6 +3,9 @@ var request = require('request');
 var Types = keystone.Field.Types;
 var env = require('dotenv');
 
+var Vimeo = require('vimeo').Vimeo;
+var lib = new Vimeo(process.env.VIMEO_CLIENT_ID, process.env.VIMEO_CLIENT_SECRET, process.env.VIMEO_ACCESS_TOKEN);
+
 var Video = new keystone.List('Video', {
 	autokey: { from: 'source videoId', path: 'key', unique: true },
 	sortable: true
@@ -21,13 +24,26 @@ Video.add({
 });
 
 Video.schema.pre('save', function(next){
-	console.log(this.customThumbnail);
-	if(this.videoId && (!this.customThumbnail || this.customThumbnail.url === '')){
-		this.thumbnail = 'http://img.youtube.com/vi/' + this.videoId + '/maxresdefault.jpg';
+	console.log(this);
+	if(this.videoId && (!this.customThumbnail.url || this.customThumbnail.url === '')){
+
+		if(this.source === 'Youtube'){
+			this.thumbnail = 'http://img.youtube.com/vi/' + this.videoId + '/maxresdefault.jpg';
+		} else if(this.source === 'Vimeo'){
+			var that = this;
+			lib.request({
+				path: '/videos/' + this.videoId + '/pictures'
+			}, function(error, body, status_code, headers){
+				var all = body.data[0].sizes;
+				that.thumbnail = all[all.length - 1].link;
+				next();
+			});
+		}
 	} else if(this.videoId && this.customThumbnail) {
 		this.thumbnail = this.customThumbnail.url;
+		next();
 	}
-	next();
+
 });
 
 Video.register();

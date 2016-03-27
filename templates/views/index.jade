@@ -10,7 +10,7 @@ block content
 
 		h1.header-skills-line I'm 
 			span#typed.skill
-	.container(class="video-grid-container")
+	.container(class="video-grid")
 		#portfolio-grid
 			each video in data.videos
 				div(class=video.size === 'Normal' ? 'grid-item' : 'grid-item grid-item-feature')
@@ -19,19 +19,35 @@ block content
 							h3 #{video.name}
 							h4 Joe Canham
 					if video.playPreview
-						iframe(	id=video.videoId 
-										type="text/html" 
-										src="http://www.youtube.com/embed/" + video.videoId +
-											"?enablejsapi=1" +
-											"&playlist=" + video.videoId +
-											"&controls=0" +
-											"&modestbranding=1" +
-											"&showinfo=0" +
-											"&rel=0" +
-											"&loop=1" +
-											"&playsinline=1" +
-											"&autoplay=1"
-										frameborder="0")
+						if video.source === 'Vimeo'
+							iframe(	id=video.videoId
+											class="Vimeo"
+											type="text/html" 
+											src="//player.vimeo.com/video/" + video.videoId + "?" +
+												"&player_id=" + video.videoId +
+												"&loop=1" +
+												"&title=0" +
+												"&badge=0" +
+												"&portrait=0" +
+												"&byline=0" +
+												"&autoplay=1" +
+												"&automute=1"
+											frameborder="0")
+						else if video.source === 'Youtube'
+							iframe(	id=video.videoId 
+											class="Youtube"
+											type="text/html" 
+											src="http://www.youtube.com/embed/" + video.videoId +
+												"?enablejsapi=1" +
+												"&playlist=" + video.videoId +
+												"&controls=0" +
+												"&modestbranding=1" +
+												"&showinfo=0" +
+												"&rel=0" +
+												"&loop=1" +
+												"&playsinline=1" +
+												"&autoplay=1"
+											frameborder="0")
 					else
 						.video-thumbnail(style='background-image: url(' + video.thumbnail + ')')
 	
