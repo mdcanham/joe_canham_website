@@ -1,0 +1,33 @@
+mixin modal(video)
+	.modal.fade(tabindex='-1', role='dialog', id="modal-" + video.videoId)
+			.modal-dialog.modal-lg
+					.modal-content
+						.modal-body
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+								span(aria-hidden='true') &times;		 
+							h4.modal-title #{video.name}		
+							if video.source === 'Vimeo'
+								iframe(	id=video.videoId
+												class="modal-video"
+												type="text/html" 
+												src="//player.vimeo.com/video/" + video.videoId + "?" +
+													"&player_id=" + video.videoId +
+													"&loop=1" +
+													"&title=0" +
+													"&badge=0" +
+													"&portrait=0" +
+													"&byline=0"										
+												frameborder="0")
+							else if video.source === 'Youtube'
+								iframe(	id=video.videoId 
+												class="modal-video"
+												type="text/html" 
+												src="http://www.youtube.com/embed/" + video.videoId +
+													"?enablejsapi=1" +
+													"&playlist=" + video.videoId +
+													"&controls=1" +
+													"&modestbranding=1" +
+													"&showinfo=0" +
+													"&rel=0" +
+													"&playsinline=1"
+												frameborder="0")

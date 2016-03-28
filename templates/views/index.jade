@@ -13,8 +13,9 @@ block content
 	.container(class="video-grid")
 		#portfolio-grid
 			each video in data.videos
+				+modal(video)
 				div(class=video.size === 'Normal' ? 'grid-item' : 'grid-item grid-item-feature')
-					.video-info-overlay
+					.video-info-overlay(data-toggle="modal", data-target='#modal-' + video.videoId)
 						.inner-text
 							h3 #{video.name}
 							h4 #{video.source}
