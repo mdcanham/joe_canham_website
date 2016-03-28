@@ -17,7 +17,7 @@ block content
 					.video-info-overlay
 						.inner-text
 							h3 #{video.name}
-							h4 Joe Canham
+							h4 #{video.source}
 					if video.playPreview
 						if video.source === 'Vimeo'
 							iframe(	id=video.videoId
@@ -29,8 +29,7 @@ block content
 												"&title=0" +
 												"&badge=0" +
 												"&portrait=0" +
-												"&byline=0" +
-												"&autoplay=1" +
+												"&byline=0" +											
 												"&automute=1"
 											frameborder="0")
 						else if video.source === 'Youtube'
@@ -45,8 +44,7 @@ block content
 												"&showinfo=0" +
 												"&rel=0" +
 												"&loop=1" +
-												"&playsinline=1" +
-												"&autoplay=1"
+												"&playsinline=1"
 											frameborder="0")
 					else
 						.video-thumbnail(style='background-image: url(' + video.thumbnail + ')')

@@ -24,11 +24,10 @@ Video.add({
 });
 
 Video.schema.pre('save', function(next){
-	console.log(this);
 	if(this.videoId && (!this.customThumbnail.url || this.customThumbnail.url === '')){
-
 		if(this.source === 'Youtube'){
 			this.thumbnail = 'http://img.youtube.com/vi/' + this.videoId + '/maxresdefault.jpg';
+			next();
 		} else if(this.source === 'Vimeo'){
 			var that = this;
 			lib.request({

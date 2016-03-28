@@ -8,18 +8,13 @@ var YoutubeVideo = function(videoId){
       rel: 0
     },
     events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
+      'onReady': onPlayerReady
     }
   });
 
   function onPlayerReady(event) {
     event.target.mute();
     event.target.playVideo();
-  };
-
-  function onPlayerStateChange(event) {
-
   };
 
   function stopVideo() {
