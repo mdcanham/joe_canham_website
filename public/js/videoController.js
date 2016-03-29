@@ -6,15 +6,28 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var container = $('#portfolio-grid');
 
 var VIMvideos = $('#portfolio-grid').find('.grid-item iframe.Vimeo');
+var ModalVIMvideos = $.find('iframe.modal-video.Vimeo');
+
 $.each(VIMvideos, function(index, video){
   new VimeoVideo(video.id);
 });
 
+$.each(ModalVIMvideos, function(index, video){
+  new VimeoVideo(video.id);
+});
+
 function onYouTubeIframeAPIReady() {
-  var YTvideos = $('#portfolio-grid').find('.grid-item iframe.Youtube');
-  $.each(YTvideos, function(index, video){
+  var PreviewYTvideos = $('#portfolio-grid').find('.grid-item iframe.Youtube');
+  var ModalYTVideos = $.find('iframe.modal-video.Youtube');
+
+  $.each(PreviewYTvideos, function(index, video){
     new YoutubeVideo(video.id);
   });
+
+  $.each(ModalYTVideos, function(index, video){
+    new YoutubeVideo(video.id)
+  });
+
   var wall = new freewall("#portfolio-grid");
   wall.reset({
     selector: '.grid-item',

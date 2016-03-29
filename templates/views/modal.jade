@@ -5,13 +5,13 @@ mixin modal(video)
 						.modal-body
 							button.close(type='button', data-dismiss='modal', aria-label='Close')
 								span(aria-hidden='true') &times;		 
-							h4.modal-title #{video.name}		
+							h2.modal-title #{video.name}		
 							if video.source === 'Vimeo'
-								iframe(	id=video.videoId
-												class="modal-video"
+								iframe(	id='modal-video-' + video.videoId
+												class="modal-video Vimeo"
 												type="text/html" 
 												src="//player.vimeo.com/video/" + video.videoId + "?" +
-													"&player_id=" + video.videoId +
+													"&player_id=" + 'modal-video-' + video.videoId +
 													"&loop=1" +
 													"&title=0" +
 													"&badge=0" +
@@ -19,15 +19,15 @@ mixin modal(video)
 													"&byline=0"										
 												frameborder="0")
 							else if video.source === 'Youtube'
-								iframe(	id=video.videoId 
-												class="modal-video"
+								iframe(	id='modal-video-' + video.videoId 
+												class="modal-video Youtube"
 												type="text/html" 
 												src="http://www.youtube.com/embed/" + video.videoId +
 													"?enablejsapi=1" +
-													"&playlist=" + video.videoId +
 													"&controls=1" +
-													"&modestbranding=1" +
 													"&showinfo=0" +
-													"&rel=0" +
-													"&playsinline=1"
-												frameborder="0")
+													"&rel=0"
+												frameborder="0") 
+							-if(typeof(video.category) !== 'undefined')
+								p #{video.category.name}
+							p #{video.description}
