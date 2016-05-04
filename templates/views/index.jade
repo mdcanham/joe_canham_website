@@ -50,5 +50,54 @@ block content
 											frameborder="0")
 					else
 						.video-thumbnail(style='background-image: url(' + video.thumbnail + ')')
-	
-		
+
+block social
+	div.container-fluid.social-container
+		div.container
+			div.row
+				div.col-xs-12.social-header
+					h1 I'm social.
+				a(href="https://www.youtube.com/user/jjcanham" target="_blank")
+					div.social-block.youtube.col-sm-3
+						include ../../public/images/YouTube.svg
+						h3 YouTube
+				a(href="https://vimeo.com/jjcanham" target="_blank")
+					div.social-block.vimeo.col-sm-3
+						include ../../public/images/Vimeo.svg
+						h3 Vimeo
+				a(href="https://nz.linkedin.com/in/joe-canham-796407113" target="_blank")
+					div.social-block.linkedin.col-sm-3
+						include ../../public/images/LinkedIn.svg
+						h3 Linkedin
+				a(href="https://www.instagram.com/jjcanham" target="_blank")
+					div.social-block.instagram.col-sm-3
+						include ../../public/images/Instagram.svg
+						h3 Instagram
+	div.container-fluid.email-container
+		div.container
+			div.row
+				div.col-xs-12.email-header
+					h1 Send me mail.
+				div.col-md-6.col-md-offset-3
+					form#contactform(action="/contact" method="post")
+						div.form-group
+							label(for="name") Your name
+							input.form-control(id="name" name="name" type="text" required)
+						div.form-group
+							label(for="name") Your email
+							input.form-control(id="email" name="email" type="email" required)
+						div.form-group
+							label(for="message") Your message
+							textarea.form-control(id="message" name="message" required)
+						button.btn.btn-block(type="submit") Send
+
+block footer
+	div.container-fluid
+		footer.container
+			div.row
+				div.col-xs-6
+					p Copyright &copy; Joe Canham 2016
+				div.col-xs-6
+					a.iubenda-black.iubenda-embed(href='//www.iubenda.com/privacy-policy/7842792', title='Privacy Policy') Privacy Policy
+					script(type='text/javascript').
+							(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);

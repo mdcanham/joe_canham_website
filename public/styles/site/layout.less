@@ -107,3 +107,141 @@ margin-top: 40px;
 		opacity: 100;
 	}
 }
+
+.email-container{
+	padding: 120px 0;
+	.email-header{
+		text-align: center;
+		margin: 0 0 30px 0;
+		h1{
+			color: #FED136;
+		}
+	}
+	#contactform{
+		label{
+			color: #FED136;
+		}
+		textarea{
+			height: 200px;
+			resize: vertical;
+		}
+		button{
+			background-color: #FED136;
+			border: none;
+			height: 40px;
+			color: #222222;
+		}
+	}
+}
+
+footer{
+	p{
+		text-align: right;
+	}
+}
+
+.social-container{
+	padding: 80px 0;
+	margin: 30px 0 0 0;
+	background: #FED136;
+	svg{
+		max-width: 80px;
+		width: 80%;
+	}
+	.social-header{
+		h1{
+				margin: 0 0 30px 0;
+		}
+		text-align: center;
+	}
+	.social-block {
+		text-align: center;
+		padding: 20px 0;
+		height: 150px;
+		position: relative;
+		h3{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		&.youtube{
+			&:hover {
+				#rectangle{
+					fill: #cd201f;
+				}
+			}
+			#rectangle,
+			#play {
+				stroke: #FFF;
+			}
+		}
+
+		&.vimeo{
+			#vimeov{
+				stroke: #FFF;
+			}
+			&:hover{
+				#vimeov{
+					fill: #1ab7ea;
+				}
+			}
+		}
+
+		&.linkedin{
+			#in{
+				stroke: #FFF;
+			}
+			&:hover{
+				#in{
+					fill: #0077B5;
+				}
+			}
+		}
+
+		&.instagram{
+			#inner-lens{
+				fill: none;
+			}
+			#outer-lens{
+				fill: none;
+			}
+			#flash{
+				fill: none;
+			}
+			#rainbow{
+				fill: none;
+			}
+			#top{
+				fill: none;
+			}
+			#bottom{
+				fill: none;
+			}
+			#rainbow{
+				opacity: 0;
+			}
+			&:hover{
+				#inner-lens{
+					fill: #444444;
+				}
+				#outer-lens{
+					fill: #333333;
+				}
+				#flash{
+					fill: #000;
+				}
+				#rainbow{
+					opacity: 1;
+				}
+				#top{
+					fill: #926257;
+				}
+				#bottom{
+					fill: #E6D6C4;
+				}
+			}
+		}
+	}
+}
