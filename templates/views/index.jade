@@ -89,7 +89,12 @@ block social
 						div.form-group
 							label(for="message") Your message
 							textarea.form-control(id="message" name="message" required)
-						button.btn.btn-block(type="submit") Send
+						div.button-container
+							button.btn.btn-block(type="submit") Send
+							.spinner
+								.double-bounce1
+									|   
+									.double-bounce2
 
 block footer
 	div.container-fluid
